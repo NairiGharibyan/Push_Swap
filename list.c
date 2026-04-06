@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nagharib <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/06 18:59:35 by nagharib          #+#    #+#             */
-/*   Updated: 2026/04/06 19:47:07 by nagharib         ###   ########.fr       */
+/*   Created: 2026/04/06 19:06:55 by nagharib          #+#    #+#             */
+/*   Updated: 2026/04/06 19:14:01 by nagharib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <stdlib.h>
-# include <stdio.h>
-
-typedef struct s_node
+void	add_back(t_node **head, t_node *new)
 {
-	int				value;
-	struct s_node	*next;
-}	t_node;
+	t_node	*tmp;
 
-
-t_node	*new_node(int value);
-void	add_back(t_node **head, t_node *new);
-
-t_node	*build_stack(int *arr, int size);
-void	free_list(t_node *head);
-#endif
+	if (!head || !new)
+		return ;
+	if (*head == NULL)
+	{
+		*head = new;
+		return ;
+	}
+	tmp = *head;
+	while (tmp -> next)
+		tmp = tmp -> next;
+	tmp -> next = new;
+}

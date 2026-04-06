@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   node.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nagharib <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/06 18:59:35 by nagharib          #+#    #+#             */
-/*   Updated: 2026/04/06 19:47:07 by nagharib         ###   ########.fr       */
+/*   Created: 2026/04/06 19:04:18 by nagharib          #+#    #+#             */
+/*   Updated: 2026/04/06 19:14:09 by nagharib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <stdlib.h>
-# include <stdio.h>
-
-typedef struct s_node
+t_node	*new_node(int value)
 {
-	int				value;
-	struct s_node	*next;
-}	t_node;
+	t_node	*node;
 
-
-t_node	*new_node(int value);
-void	add_back(t_node **head, t_node *new);
-
-t_node	*build_stack(int *arr, int size);
-void	free_list(t_node *head);
-#endif
+	node = malloc(sizeof(t_node));
+	if (!node)
+		return (NULL);
+	node -> value = value;
+	node -> next = NULL;
+	return (node);
+}

@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nagharib <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/06 18:59:35 by nagharib          #+#    #+#             */
-/*   Updated: 2026/04/06 19:47:07 by nagharib         ###   ########.fr       */
+/*   Created: 2026/04/06 19:44:41 by nagharib          #+#    #+#             */
+/*   Updated: 2026/04/06 19:45:03 by nagharib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <stdlib.h>
-# include <stdio.h>
-
-typedef struct s_node
+int main(void)
 {
-	int				value;
-	struct s_node	*next;
-}	t_node;
+    int     arr[] = {3, 2, 1};
+    t_node  *a;
+    t_node  *tmp;
 
+    a = build_stack(arr, 3);
 
-t_node	*new_node(int value);
-void	add_back(t_node **head, t_node *new);
+    tmp = a;
+    while (tmp)
+    {
+        printf("%d\n", tmp->value);
+        tmp = tmp->next;
+    }
 
-t_node	*build_stack(int *arr, int size);
-void	free_list(t_node *head);
-#endif
+    free_list(a);
+    return (0);
+}
