@@ -6,13 +6,19 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 22:22:27 by arpbabay          #+#    #+#             */
-/*   Updated: 2026/04/07 18:57:10 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/07 21:09:46 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	main(int argc, char **argv)
 {
-    t_node	*stack_a;
+    t_config    config;
+    t_node      *stack_a;
+
+    config.algo_type = 4;   
+    config.bench_mode = 0;
+    config.start_idx = 1;
+    config.disorder = 0.0;
 
     if (argc < 2)
         return (0);
