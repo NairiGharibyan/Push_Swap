@@ -6,7 +6,7 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 18:59:35 by nagharib          #+#    #+#             */
-/*   Updated: 2026/04/07 21:05:36 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/08 14:51:20 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,12 @@ typedef struct s_config
 typedef struct s_node
 {
 	int				value;
+	int				index;
+	int				target_pos;
+	int				cost_a;
+	int				cost_b;
 	struct s_node	*next;
 }	t_node;
-
 
 t_node		*new_node(int value);
 void	add_back(t_node **head, t_node *new);
@@ -39,6 +42,7 @@ int     isnum(char *str);
 long    atol(const char *nptr);
 static int	process_argument(char *arg, t_node **stack_a);
 t_node		*parse_arguments(int argc, char **argv);
+void    parse_flags(int argc, char **argv, t_config *config)
 int		check_duplicate(t_node *head, long num);
 int		is_valid_input(char *str, t_node *stack_a)
 // sb

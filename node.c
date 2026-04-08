@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   node.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nagharib <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 19:04:18 by nagharib          #+#    #+#             */
-/*   Updated: 2026/04/06 19:14:09 by nagharib         ###   ########.fr       */
+/*   Updated: 2026/04/08 14:15:01 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ t_node	*new_node(int value)
 	if (!node)
 		return (NULL);
 	node -> value = value;
+	node -> index = -1;       // indeqsavorvats chii
+    node -> target_pos = -1;
+    node -> cost_a = 0;
+    node -> cost_b = 0;
 	node -> next = NULL;
 	return (node);
 }

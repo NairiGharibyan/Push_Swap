@@ -6,7 +6,7 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 22:22:36 by arpbabay          #+#    #+#             */
-/*   Updated: 2026/04/07 18:52:40 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/08 15:20:13 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@ int isnum(char *str)
     int i;
     i = 0;
 
-    if (str[i] = '-' || str[i] = '+')
+    if (str[i] == '-' || str[i] == '+')
         i++;
-    if (str[i] = '\0')
+    if (str[i] == '\0')
         return (0);
     while(str[i] != '\0')
     {
-        if (str[i] < '0' && str[i] > '9')
+        if (str[i] < '0' || str[i] > '9')
             return (0);
         i++;
     }
@@ -95,24 +95,6 @@ int check_duplicate(t_node *head, long num)
     }
     return (0);
 }
-t_node	*parse_arguments(int argc, char **argv)
-{
-    t_node	*stack_a;
-    int		i;
-
-    stack_a = NULL;
-    i = 1;
-    while (i < argc)
-    {
-        if (!process_argument(argv[i], &stack_a))
-        {
-            free_list(stack_a);
-            return (NULL);
-        }
-        i++;
-    }
-    return (stack_a);
-}
 static int	process_argument(char *arg, t_node **stack_a)
 {
     char	**split_array;
@@ -134,4 +116,22 @@ static int	process_argument(char *arg, t_node **stack_a)
     }
     free_split(split_array);
     return (1);
+}
+t_node	*parse_arguments(int argc, char **argv, t_config *config)
+{
+    t_node	*stack_a;
+    int		i;
+
+    stack_a = NULL;
+    i = confif -> start_idx;
+    while (i < argc)
+    {
+        if (!process_argument(argv[i], &stack_a))
+        {
+            free_list(stack_a);
+            return (NULL);
+        }
+        i++;
+    }
+    return (stack_a);
 }
