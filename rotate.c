@@ -29,3 +29,10 @@ void rb(t_node **stack_b, int print_flag)
     if (print_flag == 1)
         write(1, "rb\n", 3);
 }
+void rr(t_node **stack_a, t_node **stack_b, int print_flag)
+{
+    do_rotate(stack_a);
+    do_rotate(stack_b);
+    if (print_flag == 1)
+        write(1, "rr\n", 3);
+}

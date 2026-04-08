@@ -6,67 +6,11 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 22:22:36 by arpbabay          #+#    #+#             */
-/*   Updated: 2026/04/08 15:20:13 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/08 17:24:53 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int isnum(char *str)
-{
-    int i;
-    i = 0;
 
-    if (str[i] == '-' || str[i] == '+')
-        i++;
-    if (str[i] == '\0')
-        return (0);
-    while(str[i] != '\0')
-    {
-        if (str[i] < '0' || str[i] > '9')
-            return (0);
-        i++;
-    }
-    return (1);
-}
-long	atol(const char *nptr)
-{
-	long	res;
-	int		sign;
-
-	res = 0;
-	sign = 1;
-	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
-		nptr++;
-	if (*nptr == '-')
-	{
-		sign = -1;
-		nptr++;
-	}
-	else if (*nptr == '+')
-	{
-		nptr++;
-	}
-	while (*nptr && *nptr >= '0' && *nptr <= '9')
-	{
-		res = res * 10 + (*nptr - '0');
-		++nptr;
-	}
-	return ((res) * (sign));
-}
-void	free_split(char **str)
-{
-	int		k;
-
-	if (!str)
-		return ;
-	
-	k = 0;
-	while (str[k])
-	{
-		free(str[k]);
-		k++;
-	}
-	free(str);
-}
 int	is_valid_input(char *str, t_node *stack_a)
 {
 	long	num;
@@ -120,7 +64,7 @@ static int	process_argument(char *arg, t_node **stack_a)
 t_node	*parse_arguments(int argc, char **argv, t_config *config)
 {
     t_node	*stack_a;
-    int		i;
+    int	    i;
 
     stack_a = NULL;
     i = confif -> start_idx;
