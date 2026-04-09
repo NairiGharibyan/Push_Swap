@@ -6,7 +6,7 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 22:22:27 by arpbabay          #+#    #+#             */
-/*   Updated: 2026/04/08 15:23:23 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/09 21:51:56 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ int	main(int argc, char **argv)
     config.disorder = 0.0;
 
     parse_flags(argc, argv, &config);
-   
     stack_a = parse_arguments(argc, argv, &config);
-    if (!stack_a)
+        if (!stack_a)
     {
         write(2, "Error\n", 6);
         return (1);
     }
+    select_algorithm(&config, stack_a);
     // disorderi stugum
     // solve_push_swap(stack_a); 
     free_list(stack_a);
