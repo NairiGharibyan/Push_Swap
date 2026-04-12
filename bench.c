@@ -6,7 +6,7 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 20:11:42 by arpbabay          #+#    #+#             */
-/*   Updated: 2026/04/12 17:59:13 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/12 20:10:01 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,14 @@ void    print_benchmark(t_config *config)
     int     i;
     int     total_ops;
     double  dis_perc;
-    char	*algo_names[4];
+    char	*algo_names[5];
+    char    *complex[4];
+    
+    complex[1] = "O(n^2)";
+    complex[2] = "O(n sqrt n)";
+    complex[3] = "O(n log n)";
 
-    algo_names[0] = "[bench] strategy: Adaptive / "
+    algo_names[0] = "[bench] strategy: Adaptive / ";
 	algo_names[1] = "[bench] strategy: Simple / O(n^2)\n";
 	algo_names[2] = "[bench] strategy: Medium / O(n sqrt n)\n";
 	algo_names[3] = "[bench] strategy: Complex / O(n log n)\n";
@@ -49,7 +54,7 @@ void    print_benchmark(t_config *config)
     print_dis_perc(dis_perc);
     ft_putstr_fd(algo_names[config->algo_type], 2);
     if (config->algo_type == 4 || config->algo_type == 0)
-        ft_putstr_fd(complex[config->effective_algo]);
+        ft_putstr_fd(complex[config->effective_algo], 2);
 
 
 }

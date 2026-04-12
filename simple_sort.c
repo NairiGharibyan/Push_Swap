@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   simple.c                                           :+:      :+:    :+:   */
+/*   simple_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nagharib <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 18:30:47 by nagharib          #+#    #+#             */
-/*   Updated: 2026/04/12 19:00:57 by nagharib         ###   ########.fr       */
+/*   Updated: 2026/04/12 20:14:11 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	find_min(t_node *stack)
 	int		min;
 	t_node	*current;
 
-	if (*stack)
+	if (stack)
 		return (0);
 	min = stack -> value;
 	current = stack;
