@@ -6,7 +6,7 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 19:05:38 by nagharib          #+#    #+#             */
-/*   Updated: 2026/04/12 20:35:32 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/12 22:13:03 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	add_back(t_node **head, t_node *new);
 void    parse_flags(int argc, char **argv, t_config *config);
 void	select_algorithm(t_config *config, t_node *stack_a);
 void	free_split(char **str);
+void	print_benchmark(t_config *config);
 void	sa(t_node **stack_a, int print_flag, t_config *config);
 void	sb(t_node **stack_b, int print_flag, t_config *config);
 void	ss(t_node **a, t_node **b, int print_flag, t_config *config);
@@ -67,6 +68,5 @@ void	rra(t_node **stack_a, int print_flag, t_config *config);
 void	rrb(t_node **stack_b, int print_flag, t_config *config);
 void	rrr(t_node **stack_a, t_node **stack_b, int print_flag, t_config *config);
 long    atol(const char *nptr);
-//static int	process_argument(char *arg, t_node **stack_a);
 
 #endif
