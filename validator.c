@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validator.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nagharib <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/06 22:22:36 by arpbabay          #+#    #+#             */
-/*   Updated: 2026/04/10 17:50:27 by nagharib         ###   ########.fr       */
+/*   Created: 2026/04/12 19:03:56 by nagharib          #+#    #+#             */
+/*   Updated: 2026/04/12 19:04:00 by nagharib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ t_node	*parse_arguments(int argc, char **argv, t_config *config)
     int	    i;
 
     stack_a = NULL;
-    i = confif -> start_idx;
+    i = config -> start_idx;
     while (i < argc)
     {
         if (!process_argument(argv[i], &stack_a))
