@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nagharib <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/06 18:59:35 by nagharib          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2026/04/09 19:12:44 by nagharib         ###   ########.fr       */
-=======
-/*   Updated: 2026/04/10 17:41:39 by arpbabay         ###   ########.fr       */
->>>>>>> e6d86e2966ab12f76da90b7fc5ec2e5d39c7db02
+/*   Created: 2026/04/12 19:05:38 by nagharib          #+#    #+#             */
+/*   Updated: 2026/04/12 19:08:55 by nagharib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +15,7 @@
 
 # include <stdlib.h>
 # include <stdio.h>
+# include <unsitd.h>
 
 typedef enum e_ops
 {
@@ -58,6 +55,12 @@ void	sb(t_node **stack_b, int print_flag);
 void	ss(t_node **a, t_node **b, int print_flag);
 void	pb(t_node **stack_a, t_node **stack_b, int print_flag);
 void	pa(t_node **stack_a, t_node **stack_b, int print_flag);
+void	ra(t_node **stack_a, int print_flag, t_config *config);
+void	rb(t_node **stack_b, int print_flag, t_config *config);
+void	rr(t_node **stack_a, t_node **stack_b, int print_flag, t_config *config);
+void	rra(t_node **stack_a, int print_flag, t_config *config);
+void	rrb(t_node **stack_b, int print_flag, t_config *config);
+void	rrr(t_node **stack_a, t_node **stack_b, int print_flag, t_config *config);
 long    atol(const char *nptr);
 static int	process_argument(char *arg, t_node **stack_a);
 #endif
