@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   simple.c                                           :+:      :+:    :+:   */
+/*   simple_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nagharib <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 18:30:47 by nagharib          #+#    #+#             */
-/*   Updated: 2026/04/12 19:00:57 by nagharib         ###   ########.fr       */
+/*   Updated: 2026/04/12 20:19:56 by nagharib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	get_index(t_node *stack, int value)
 	return (-1);
 }
 
-void	bring_min_to_top(t_node **stack)
+void	bring_min_to_top(t_node **stack, t_config *config)
 {
 	int	min;
 	int	index;
@@ -59,22 +59,22 @@ void	bring_min_to_top(t_node **stack)
 	if (index <= size / 2)
 	{
 		while ((*stack)->value != min)
-			ra(stack, 1);
+			ra(stack, 1, config);
 	}
 	else
 	{
 		while ((*stack)->value != min)
-			rra(stack, 1);
+			rra(stack, 1, config);
 	}
 }
 
-void	simple_sort(t_node **a, t_node **b)
+void	simple_sort(t_node **a, t_node **b, t_config *config)
 {
 	while (*a)
 	{
-		bring_min_to_top(a);
-		pb(a, b, 1);
+		bring_min_to_top(a, config);
+		pb(a, b, 1, config);
 	}
 	while (*b)
-		pa(a, b, 1);
+		pa(a, b, 1, config);
 }
