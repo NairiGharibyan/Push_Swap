@@ -6,10 +6,11 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 22:22:36 by arpbabay          #+#    #+#             */
-/*   Updated: 2026/04/08 17:24:53 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/10 17:50:27 by nagharib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
 
 int	is_valid_input(char *str, t_node *stack_a)
 {
