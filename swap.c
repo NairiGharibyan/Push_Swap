@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nagharib <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 16:39:10 by nagharib          #+#    #+#             */
-/*   Updated: 2026/04/08 17:32:37 by nagharib         ###   ########.fr       */
+/*   Updated: 2026/04/12 20:34:35 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "psuh_swap.h"
+#include "push_swap.h"
 
 static void	do_swap(t_node **stack)
 {
@@ -26,24 +26,27 @@ static void	do_swap(t_node **stack)
 	*stack = second;
 }
 
-void	sa(t_node **stack_a, int print_flag)
+void	sa(t_node **stack_a, int print_flag, t_config *config)
 {
 	do_swap(stack_a);
+	config->op_counts[SA]++;
 	if (print_flag == 1)
 		write(1, "sa\n", 3);
 }
 
-void	sb(t_node **stack_b, int print_flag)
+void	sb(t_node **stack_b, int print_flag, t_config *config)
 {
 	do_swap(stack_b);
+	config->op_counts[SB]++;
 	if (print_flag == 1)
 		write(1, "sb\n", 3);
 }
 
-void	ss(t_node **a, t_node **b, int print_flag)
+void	ss(t_node **a, t_node **b, int print_flag, t_config *config)
 {
 	do_swap(a);
 	do_swap(b);
+	config->op_counts[SS]++;
 	if (print_flag == 1)
 		write(1, "ss\n", 3);
 }

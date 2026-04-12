@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nagharib <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 17:35:37 by nagharib          #+#    #+#             */
-/*   Updated: 2026/04/08 17:57:45 by nagharib         ###   ########.fr       */
+/*   Updated: 2026/04/12 20:33:16 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,18 @@ static void	do_push(t_node **src, t_node **dest)
 	*dest = tmp;
 }
 
-void	pb(t_node **stack_a, t_node **stack_b, int print_flag)
+void	pb(t_node **stack_a, t_node **stack_b, int print_flag, t_config *config)
 {
 	do_push(stack_a, stack_b);
+	config->op_counts[PB]++;
 	if (print_flag == 1)
 		write(1, "pb\n", 3);
 }
 
-void	pa(t_node **stack_a, t_node **stack_b, int print_flag)
+void	pa(t_node **stack_a, t_node **stack_b, int print_flag, t_config *config)
 {
 	do_push(stack_b, stack_a);
+	config->op_counts[PA]++;
 	if (print_flag == 1)
 		write(1, "pa\n", 3);
 }

@@ -6,7 +6,7 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 19:05:38 by nagharib          #+#    #+#             */
-/*   Updated: 2026/04/12 20:05:19 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/12 20:35:32 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,18 @@ t_node		*build_stack(int *arr, int size);
 t_node		*parse_arguments(int argc, char **argv, t_config *config);
 int     isnum(char *str);
 int		check_duplicate(t_node *head, long num);
+int		stack_size(t_node *stack);
 int		is_valid_input(char *str, t_node *stack_a);
 void	free_list(t_node *head);
 void	add_back(t_node **head, t_node *new);
 void    parse_flags(int argc, char **argv, t_config *config);
 void	select_algorithm(t_config *config, t_node *stack_a);
 void	free_split(char **str);
-void	sa(t_node **stack_a, int print_flag);
-void	sb(t_node **stack_b, int print_flag);
-void	ss(t_node **a, t_node **b, int print_flag);
-void	pb(t_node **stack_a, t_node **stack_b, int print_flag);
-void	pa(t_node **stack_a, t_node **stack_b, int print_flag);
+void	sa(t_node **stack_a, int print_flag, t_config *config);
+void	sb(t_node **stack_b, int print_flag, t_config *config);
+void	ss(t_node **a, t_node **b, int print_flag, t_config *config);
+void	pa(t_node **stack_a, t_node **stack_b, int print_flag, t_config *config);
+void	pb(t_node **stack_a, t_node **stack_b, int print_flag, t_config *config);
 void	ra(t_node **stack_a, int print_flag, t_config *config);
 void	rb(t_node **stack_b, int print_flag, t_config *config);
 void	rr(t_node **stack_a, t_node **stack_b, int print_flag, t_config *config);
