@@ -6,7 +6,7 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 18:59:35 by nagharib          #+#    #+#             */
-/*   Updated: 2026/04/08 14:51:20 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/10 17:41:39 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,17 @@
 # include <stdlib.h>
 # include <stdio.h>
 
+typedef enum e_ops
+{
+	SA, SB, SS, PA, PB, RA, RB, RR, RRA, RRB, RRR
+}	t_ops;
+
 typedef struct s_config
 {
 	int		algo_type;
 	int		bench_mod;
 	int		start_idx;
+	int		op_counts[11];
 	float	disorder;
 }	t_config;
 
