@@ -6,7 +6,7 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 16:39:10 by nagharib          #+#    #+#             */
-/*   Updated: 2026/04/12 20:34:35 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/13 14:45:40 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	do_swap(t_node **stack)
 void	sa(t_node **stack_a, int print_flag, t_config *config)
 {
 	do_swap(stack_a);
-	config->op_counts[SA]++;
+	config->op_counts[0]++;
 	if (print_flag == 1)
 		write(1, "sa\n", 3);
 }
@@ -37,7 +37,7 @@ void	sa(t_node **stack_a, int print_flag, t_config *config)
 void	sb(t_node **stack_b, int print_flag, t_config *config)
 {
 	do_swap(stack_b);
-	config->op_counts[SB]++;
+	config->op_counts[1]++;
 	if (print_flag == 1)
 		write(1, "sb\n", 3);
 }
@@ -46,7 +46,7 @@ void	ss(t_node **a, t_node **b, int print_flag, t_config *config)
 {
 	do_swap(a);
 	do_swap(b);
-	config->op_counts[SS]++;
+	config->op_counts[3]++;
 	if (print_flag == 1)
 		write(1, "ss\n", 3);
 }

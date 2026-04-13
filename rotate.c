@@ -6,7 +6,7 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 16:25:14 by nagharib          #+#    #+#             */
-/*   Updated: 2026/04/11 20:00:25 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/13 14:46:48 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void ra(t_node **stack_a, int print_flag, t_config *config)
     if (!*stack_a || !(*stack_a)->next)
         return ;
     do_rotate(stack_a);
-    config->op_counts[RA]++;
+    config->op_counts[5]++;
     if (print_flag == 1)
         write(1, "ra\n", 3);
 }
@@ -43,7 +43,7 @@ void rb(t_node **stack_b, int print_flag, t_config *config)
     if (!*stack_b || !(*stack_b)->next)
         return ;
     do_rotate(stack_b);
-    config->op_counts[RB]++;
+    config->op_counts[6]++;
     if (print_flag == 1)
         write(1, "rb\n", 3);
 }
@@ -53,7 +53,7 @@ void rr(t_node **stack_a, t_node **stack_b, int print_flag, t_config *config)
         return ;
     do_rotate(stack_a);
     do_rotate(stack_b);
-    config->op_counts[RR]++;
+    config->op_counts[7]++;
     if (print_flag == 1)
         write(1, "rr\n", 3);
 }

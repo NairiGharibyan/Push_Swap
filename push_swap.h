@@ -6,7 +6,7 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 19:05:38 by nagharib          #+#    #+#             */
-/*   Updated: 2026/04/13 14:29:56 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/13 15:51:18 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,16 @@ int     isnum(char *str);
 int		check_duplicate(t_node *head, long num);
 int		stack_size(t_node *stack);
 int		is_valid_input(char *str, t_node *stack_a);
+int		is_sorted(t_node *stack);
 void	free_list(t_node *head);
 void	add_back(t_node **head, t_node *new);
 void    parse_flags(int argc, char **argv, t_config *config);
-void	select_algorithm(t_config *config, t_node *stack_a);
+void    select_algorithm(t_config *config, t_node **stack_a, t_node **stack_b);
 void	free_split(char **str);
 void	print_benchmark(t_config *config);
+void	simple_sort(t_node **a, t_node **b, t_config *config);
+void	medium_sort(t_node **a, t_node **b, t_config *config);
+void	complex_sort(t_node **a, t_node **b, t_config *config);
 void	sa(t_node **stack_a, int print_flag, t_config *config);
 void	sb(t_node **stack_b, int print_flag, t_config *config);
 void	ss(t_node **a, t_node **b, int print_flag, t_config *config);

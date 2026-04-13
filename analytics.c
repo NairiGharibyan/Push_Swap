@@ -6,7 +6,7 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 20:11:15 by arpbabay          #+#    #+#             */
-/*   Updated: 2026/04/11 22:32:18 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/13 15:28:28 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,26 @@ double	compute_disorder(t_node *stack_a)
 	}
 	return (mistakes / total_pairs);
 }
-void	select_algorithm(t_config *config, t_node *stack_a)
+void    select_algorithm(t_config *config, t_node **stack_a, t_node **stack_b)
 {
-	if (!stack_a || !config)
+	if (!stack_a || !*stack_a || !config)
 		return ;
-	if (config->algo_type != 4)
-		return ;
-	config->disorder = compute_disorder(stack_a);
+	if (config->algo_type == 4)
+	{
+		config->disorder = compute_disorder(*stack_a);
 	if (config->disorder < 0.2)
-		config->algo_type = 1;
+		config->effective_algo = 1;
 	else if (config->disorder < 0.5)
-		config->algo_type = 2;
+		config->effective_algo = 2;
 	else
-		config->algo_type = 3;
+		config->effective_algo = 3;
+	}
+	else
+		config->effective_algo = config->algo_type;
+	if (config->effective_algo == 1)
+		simple_sort(stack_a, stack_b, config);
+	// else if (config->effective_algo == 2)
+	// 	medium_sort(stack_a, stack_b, config);
+	// else if (config->effective_algo == 3)
+	// 	complex_sort(stack_a, stack_b, config);
 }
