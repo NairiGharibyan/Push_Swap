@@ -6,7 +6,7 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 20:11:15 by arpbabay          #+#    #+#             */
-/*   Updated: 2026/04/13 15:28:28 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/13 20:58:57 by nagharib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ void    select_algorithm(t_config *config, t_node **stack_a, t_node **stack_b)
 		config->effective_algo = config->algo_type;
 	if (config->effective_algo == 1)
 		simple_sort(stack_a, stack_b, config);
-	// else if (config->effective_algo == 2)
-	// 	medium_sort(stack_a, stack_b, config);
+	else if (config->effective_algo == 2)
+		medium_sort(stack_a, stack_b, config);
 	// else if (config->effective_algo == 3)
 	// 	complex_sort(stack_a, stack_b, config);
 }

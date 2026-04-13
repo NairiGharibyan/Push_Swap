@@ -6,7 +6,7 @@ CFLAGS = -Wall -Wextra -Werror
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-SRCS = main.c validator.c analytics.c bench.c build.c free.c list.c node.c parser.c push.c rev_rotate.c rotate.c simple_sort.c stack_utils.c swap.c validator_helpers.c
+SRCS = main.c validator.c analytics.c bench.c build.c free.c list.c node.c parser.c push.c rev_rotate.c rotate.c simple_sort.c medium_sort.c stack_utils.c swap.c validator_helpers.c
 OBJS = $(SRCS:.c=.o)
 
 .PHONY: all clean fclean re

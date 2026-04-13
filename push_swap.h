@@ -6,7 +6,7 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 19:05:38 by nagharib          #+#    #+#             */
-/*   Updated: 2026/04/13 15:51:18 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/13 21:04:19 by nagharib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ int		check_duplicate(t_node *head, long num);
 int		stack_size(t_node *stack);
 int		is_valid_input(char *str, t_node *stack_a);
 int		is_sorted(t_node *stack);
+int		get_index(t_node *stack, int value);
+int		find_max(t_node *stack);
 void	free_list(t_node *head);
 void	add_back(t_node **head, t_node *new);
 void    parse_flags(int argc, char **argv, t_config *config);
@@ -71,6 +73,10 @@ void	rr(t_node **stack_a, t_node **stack_b, int print_flag, t_config *config);
 void	rra(t_node **stack_a, int print_flag, t_config *config);
 void	rrb(t_node **stack_b, int print_flag, t_config *config);
 void	rrr(t_node **stack_a, t_node **stack_b, int print_flag, t_config *config);
+void	assign_index(t_node *a);
+void	bring_max_to_top(t_node **stack, t_config *config);
+void	push_back_to_a(t_node **a, t_node **b, t_config *config);
+void	medium_sort(t_node **a, t_node **b, t_config *config);
 long    atol(const char *nptr);
 double	compute_disorder(t_node *stack_a);
 #endif
