@@ -6,7 +6,7 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 19:05:38 by nagharib          #+#    #+#             */
-/*   Updated: 2026/04/12 22:13:03 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/13 14:29:56 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,5 @@ void	rra(t_node **stack_a, int print_flag, t_config *config);
 void	rrb(t_node **stack_b, int print_flag, t_config *config);
 void	rrr(t_node **stack_a, t_node **stack_b, int print_flag, t_config *config);
 long    atol(const char *nptr);
-
+double	compute_disorder(t_node *stack_a);
 #endif

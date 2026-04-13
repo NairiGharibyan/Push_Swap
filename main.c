@@ -6,7 +6,7 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 22:22:27 by arpbabay          #+#    #+#             */
-/*   Updated: 2026/04/12 22:12:11 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/13 14:29:24 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(int argc, char **argv)
 	stack_a = parse_arguments(argc, argv, &config);
 	if (!stack_a)
 		return (write(2, "Error\n", 6), 1);
-	config.disorder = get_disorder(stack_a);
+	config.disorder = compute_disorder(stack_a);
 	select_algorithm(&config, stack_a);
 	if (config.bench_mod == 1)
 		print_benchmark(&config);
