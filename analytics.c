@@ -6,7 +6,7 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 20:11:15 by arpbabay          #+#    #+#             */
-/*   Updated: 2026/04/13 20:58:57 by nagharib         ###   ########.fr       */
+/*   Updated: 2026/04/14 16:20:22 by nagharib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,33 +24,34 @@ double	compute_disorder(t_node *stack_a)
 	if (!stack_a || !stack_a->next)
 		return (0.0);
 	outer = stack_a;
-	while(outer->next != NULL)
+	while (outer->next != NULL)
 	{
 		inner = outer->next;
-		while(inner != NULL)
+		while (inner != NULL)
 		{
-			if(outer->value > inner->value)
+			if (outer->value > inner->value)
 				mistakes++;
 			total_pairs++;
 			inner = inner->next;
 		}
-	outer = outer->next;
+		outer = outer->next;
 	}
 	return (mistakes / total_pairs);
 }
-void    select_algorithm(t_config *config, t_node **stack_a, t_node **stack_b)
+
+void	select_algorithm(t_config *config, t_node **stack_a, t_node **stack_b)
 {
 	if (!stack_a || !*stack_a || !config)
 		return ;
 	if (config->algo_type == 4)
 	{
 		config->disorder = compute_disorder(*stack_a);
-	if (config->disorder < 0.2)
-		config->effective_algo = 1;
-	else if (config->disorder < 0.5)
-		config->effective_algo = 2;
-	else
-		config->effective_algo = 3;
+		if (config->disorder < 0.2)
+			config->effective_algo = 1;
+		else if (config->disorder < 0.5)
+			config->effective_algo = 2;
+		else
+			config->effective_algo = 3;
 	}
 	else
 		config->effective_algo = config->algo_type;
@@ -58,6 +59,4 @@ void    select_algorithm(t_config *config, t_node **stack_a, t_node **stack_b)
 		simple_sort(stack_a, stack_b, config);
 	else if (config->effective_algo == 2)
 		medium_sort(stack_a, stack_b, config);
-	// else if (config->effective_algo == 3)
-	// 	complex_sort(stack_a, stack_b, config);
 }

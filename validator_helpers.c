@@ -6,29 +6,30 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 20:10:56 by arpbabay          #+#    #+#             */
-/*   Updated: 2026/04/11 22:32:21 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/14 21:42:03 by nagharib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int isnum(char *str)
+int	isnum(char *str)
 {
-    int i;
-    i = 0;
+	int	i;
 
-    if (str[i] == '-' || str[i] == '+')
-        i++;
-    if (str[i] == '\0')
-        return (0);
-    while(str[i] != '\0')
-    {
-        if (str[i] < '0' || str[i] > '9')
-            return (0);
-        i++;
-    }
-    return (1);
+	i = 0;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	if (str[i] == '\0')
+		return (0);
+	while (str[i] != '\0')
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
+		i++;
+	}
+	return (1);
 }
+
 long	atol(const char *nptr)
 {
 	long	res;
@@ -54,13 +55,13 @@ long	atol(const char *nptr)
 	}
 	return ((res) * (sign));
 }
+
 void	free_split(char **str)
 {
 	int		k;
 
 	if (!str)
 		return ;
-	
 	k = 0;
 	while (str[k])
 	{

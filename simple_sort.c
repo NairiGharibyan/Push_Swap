@@ -6,23 +6,23 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 18:30:47 by nagharib          #+#    #+#             */
-/*   Updated: 2026/04/13 15:42:54 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/14 17:30:44 by nagharib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int stack_size(t_node *stack)
+int	stack_size(t_node *stack)
 {
-    int count;
+	int	count;
 
-    count = 0;
-    while (stack)
-    {
-        count++;
-        stack = stack->next;
-    }
-    return (count);
+	count = 0;
+	while (stack)
+	{
+		count++;
+		stack = stack->next;
+	}
+	return (count);
 }
 
 int	find_min(t_node *stack)
