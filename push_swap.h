@@ -6,7 +6,7 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 19:05:38 by nagharib          #+#    #+#             */
-/*   Updated: 2026/04/13 21:04:19 by nagharib         ###   ########.fr       */
+/*   Updated: 2026/04/14 15:27:21 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_node
 t_node		*new_node(int value);
 t_node		*build_stack(int *arr, int size);
 t_node		*parse_arguments(int argc, char **argv, t_config *config);
+int		chunk_size(int s);
 int     isnum(char *str);
 int		check_duplicate(t_node *head, long num);
 int		stack_size(t_node *stack);

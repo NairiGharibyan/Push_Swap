@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   medium_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nagharib <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 16:51:41 by nagharib          #+#    #+#             */
-/*   Updated: 2026/04/13 21:03:53 by nagharib         ###   ########.fr       */
+/*   Updated: 2026/04/14 15:51:30 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ void	bring_max_to_top(t_node **stack, t_config *config)
 	int	index;
 	int	size;
 
+	if (!stack || !*stack)
+		return ;
 	max = find_max(*stack);
 	index = get_index(*stack, max);
 	size = stack_size(*stack);
@@ -82,26 +84,46 @@ void	push_back_to_a(t_node **a, t_node **b, t_config *config)
 	}
 }
 
+int		chunk_size(int s)
+{
+	int		c;
+
+	c = 0;
+	if (s <= 10)
+        c = 2;
+    else if (s <= 100)
+        c = s / 6;
+    else
+		c = s / 14;
+	return (c);
+}
+
 void	medium_sort(t_node **a, t_node **b, t_config *config)
 {
 	int	size;
 	int	chunk;
-	int	limit;
+	int	pushed;
 
 	assign_index(*a);
-
 	size = stack_size(*a);
-	chunk = size / 5;
-	limit = chunk;
+	chunk = chunk_size(size);
+	pushed = 0;
 	while (*a)
 	{
-		if ((*a)->index <= limit)
+		if ((*a)->index <= pushed)
 		{
 			pb(a, b, 1, config);
-			limit++;
+			rb(b, 1, config);
+			pushed++;
+		}
+		else if ((*a)->index <= (pushed + chunk))
+		{
+			pb(a, b, 1, config);
+			pushed++;
 		}
 		else
 			ra(a, 1, config);
 	}
 	push_back_to_a(a, b, config);
 }
+
