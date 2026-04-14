@@ -6,7 +6,7 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 19:04:18 by nagharib          #+#    #+#             */
-/*   Updated: 2026/04/08 14:15:01 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/15 00:31:04 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,9 @@ t_node	*new_node(int value)
 	if (!node)
 		return (NULL);
 	node -> value = value;
-	node -> index = -1;       // indeqsavorvats chii
-    node -> target_pos = -1;
-    node -> cost_a = 0;
-    node -> cost_b = 0;
+	node -> index = -1;
+	node->target_node = NULL;
+	node->cost = 0;
 	node -> next = NULL;
 	return (node);
 }

@@ -6,7 +6,7 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 19:05:38 by nagharib          #+#    #+#             */
-/*   Updated: 2026/04/14 15:27:21 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/15 00:30:29 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
+# include <limits.h>
 # include "libft/libft.h"
 
 typedef enum e_ops
@@ -37,15 +38,16 @@ typedef struct s_node
 {
 	int				value;
 	int				index;
-	int				target_pos;
-	int				cost_a;
-	int				cost_b;
+	int				cost;
+	int				pos;
+	struct s_node	*target_node;
 	struct s_node	*next;
 }	t_node;
 
 t_node		*new_node(int value);
 t_node		*build_stack(int *arr, int size);
 t_node		*parse_arguments(int argc, char **argv, t_config *config);
+t_node		*find_max_node(t_node *stack);
 int		chunk_size(int s);
 int     isnum(char *str);
 int		check_duplicate(t_node *head, long num);
@@ -80,4 +82,20 @@ void	push_back_to_a(t_node **a, t_node **b, t_config *config);
 void	medium_sort(t_node **a, t_node **b, t_config *config);
 long    atol(const char *nptr);
 double	compute_disorder(t_node *stack_a);
+
+//complexiny
+void    sort_three(t_node **a, t_config *config);
+void	assign_pos(t_node *stack);
+void    set_all_targets(t_node *a, t_node *b);
+void	set_all_costs(t_node *a, t_node *b);
+t_node	*get_cheapest_node(t_node *stack);
+void	rotate_both_up(t_node **a, t_node **b, t_node *cheapest_node, t_config *config);
+void	rotate_both_down(t_node **a, t_node **b, t_node *cheapest_node, t_config *config);
+void	do_move(t_node **a, t_node **b, t_node *cheapest_node, t_config *config);
+int		calculate_cost(int pos, int size);
+void	rotate_a(t_node **a, t_node *cheapest_node, t_config *config);
+void	rotate_b(t_node **a, t_node *cheapest_node, t_config *config);
+t_node  *get_target_in_a(t_node *a, int b_value);
+t_node  *find_min_node(t_node *stack);
+void    final_alignment(t_node **a, t_config *config);
 #endif

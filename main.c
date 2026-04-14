@@ -6,38 +6,56 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 22:22:27 by arpbabay          #+#    #+#             */
-/*   Updated: 2026/04/14 15:26:14 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/15 00:25:40 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-	t_config	config;
-	t_node		*stack_a;
-	t_node		*stack_b;
-	int			i;
+    t_config    config;
+    t_node      *stack_a;
+    t_node      *stack_b;
+    int         i;
 
-	if (argc < 2)
-		return (0);
-	config.algo_type = 4;
-	config.bench_mod = 0;
-	config.start_idx = 1;
-	config.disorder = 0.0;
-	i = 0;
-	while (i < 11)
-		config.op_counts[i++] = 0;
-	parse_flags(argc, argv, &config);
-	stack_b = NULL;
-	stack_a = parse_arguments(argc, argv, &config);
-	if (!stack_a)
-		return (write(2, "Error\n", 6), 1);
-	config.disorder = compute_disorder(stack_a);
-	if (is_sorted(stack_a))
-		return (free_list(stack_a), 0);
-	select_algorithm(&config, &stack_a, &stack_b);
-	if (config.bench_mod == 1)
-		print_benchmark(&config);
-	return (free_list(stack_a), free_list(stack_b), 0);
+    if (argc < 2)
+        return (0);
+    config.algo_type = 4;
+    config.bench_mod = 0;
+    config.start_idx = 1;
+    config.disorder = 0.0;
+    i = 0;
+    while (i < 11)
+        config.op_counts[i++] = 0;
+    parse_flags(argc, argv, &config);
+    stack_b = NULL;
+    stack_a = parse_arguments(argc, argv, &config);
+    if (!stack_a)
+        return (write(2, "Error\n", 6), 1);
+        
+    config.disorder = compute_disorder(stack_a);
+    
+    if (is_sorted(stack_a))
+    {
+
+    }
+    else if (stack_size(stack_a) == 2)
+    {
+        if (stack_a->value > stack_a->next->value)
+            sa(&stack_a, 1, &config);
+    }
+    else if (stack_size(stack_a) == 3)
+    {
+        sort_three(&stack_a, &config);
+    }
+    else
+    {
+        select_algorithm(&config, &stack_a, &stack_b);
+    }
+
+    if (config.bench_mod == 1)
+        print_benchmark(&config);
+        
+    return (free_list(stack_a), free_list(stack_b), 0);
 }
