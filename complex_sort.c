@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   complex_sort.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/15 15:34:00 by arpbabay          #+#    #+#             */
+/*   Updated: 2026/04/15 15:34:01 by arpbabay         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	assign_pos(t_node *stack)
 {
-	int     i;
+	int	i;
 
 	i = 0;
 	while (stack)
@@ -26,17 +38,18 @@ void	set_all_costs(t_node *a, t_node *b)
 	size_a = stack_size(a);
 	size_b = stack_size(b);
 	curr_a = a;
-	while(curr_a)
+	while (curr_a)
 	{
-	cost_a = calculate_cost(curr_a->pos, size_a);
-	cost_b = calculate_cost(curr_a->target_node->pos, size_b);
-	curr_a->cost = cost_a + cost_b;
-	curr_a = curr_a->next;
+		cost_a = calculate_cost(curr_a->pos, size_a);
+		cost_b = calculate_cost(curr_a->target_node->pos, size_b);
+		curr_a->cost = cost_a + cost_b;
+		curr_a = curr_a->next;
 	}
 }
+
 t_node	*get_cheapest_node(t_node *stack)
 {
-	long		min;
+	long	min;
 	t_node	*min_node;
 	t_node	*current;
 
@@ -56,12 +69,15 @@ t_node	*get_cheapest_node(t_node *stack)
 	}
 	return (min_node);
 }
-void	rotate_both_up(t_node **a, t_node **b, t_node *cheapest_node, t_config *config)
+void	rotate_both_up(t_node **a, t_node **b, t_node *cheapest_node,
+		t_config *config)
 {
 	while (*a != cheapest_node && *b != cheapest_node->target_node)
 		rr(a, b, 1, config);
 }
-void	rotate_both_down(t_node **a, t_node **b, t_node *cheapest_node, t_config *config)
+
+void	rotate_both_down(t_node **a, t_node **b, t_node *cheapest_node,
+		t_config *config)
 {
 	while (*a != cheapest_node && *b != cheapest_node->target_node)
 		rrr(a, b, 1, config);
@@ -69,40 +85,42 @@ void	rotate_both_down(t_node **a, t_node **b, t_node *cheapest_node, t_config *c
 
 void	do_move(t_node **a, t_node **b, t_node *cheapest_node, t_config *config)
 {
-	int		size_a;
-	int		size_b;
+	int	size_a;
+	int	size_b;
 
 	size_a = stack_size(*a);
 	size_b = stack_size(*b);
-	if (cheapest_node->pos <= size_a / 2 && cheapest_node->target_node->pos <= size_b / 2)
+	if (cheapest_node->pos <= size_a / 2
+		&& cheapest_node->target_node->pos <= size_b / 2)
 		rotate_both_up(a, b, cheapest_node, config);
-	else if (cheapest_node->pos > size_a / 2 && cheapest_node->target_node->pos > size_b / 2)
+	else if (cheapest_node->pos > size_a / 2
+		&& cheapest_node->target_node->pos > size_b / 2)
 		rotate_both_down(a, b, cheapest_node, config);
 	rotate_a(a, cheapest_node, config);
 	rotate_b(b, cheapest_node->target_node, config);
 	pb(a, b, 1, config);
 }
 
-void    complex_sort(t_node **a, t_node **b, t_config *config)
+void	complex_sort(t_node **a, t_node **b, t_config *config)
 {
-    t_node  *cheapest;
-    t_node  *target;
+	t_node	*cheapest;
+	t_node	*target;
 
-    pb(a, b, 1, config);
-    pb(a, b, 1, config);
-    while (stack_size(*a) > 3)
-    {
-        set_all_targets(*a, *b);
-        set_all_costs(*a, *b);
-        cheapest = get_cheapest_node(*a);
-        do_move(a, b, cheapest, config);
-    }
-    sort_three(a, config);
-    while (*b)
-    {
-        target = get_target_in_a(*a, (*b)->value);
-        rotate_a(a, target, config);
-        pa(a, b, 1, config);
-    }
-    final_alignment(a, config);
+	pb(a, b, 1, config);
+	pb(a, b, 1, config);
+	while (stack_size(*a) > 3)
+	{
+		set_all_targets(*a, *b);
+		set_all_costs(*a, *b);
+		cheapest = get_cheapest_node(*a);
+		do_move(a, b, cheapest, config);
+	}
+	sort_three(a, config);
+	while (*b)
+	{
+		target = get_target_in_a(*a, (*b)->value);
+		rotate_a(a, target, config);
+		pa(a, b, 1, config);
+	}
+	final_alignment(a, config);
 }

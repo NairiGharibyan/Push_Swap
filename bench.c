@@ -6,48 +6,48 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 20:11:42 by arpbabay          #+#    #+#             */
-/*   Updated: 2026/04/12 21:55:39 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/15 15:33:29 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void print_buckets(t_config *config)
+static void	print_buckets(t_config *config)
 {
-    ft_putstr_fd("[bench] sa: ", 2);
-    ft_putnbr_fd(config->op_counts[0],2);
-    ft_putstr_fd(" sb: ", 2);
-    ft_putnbr_fd(config->op_counts[1],2);
-    ft_putstr_fd(" ss: ", 2);
-    ft_putnbr_fd(config->op_counts[2],2);
-    ft_putstr_fd(" pa: ", 2);
-    ft_putnbr_fd(config->op_counts[3],2);
-    ft_putstr_fd(" pb: ", 2);
-    ft_putnbr_fd(config->op_counts[4],2);
-    ft_putstr_fd("\n", 2);
-    ft_putstr_fd("[bench] ra: ", 2);
-    ft_putnbr_fd(config->op_counts[5],2);
-    ft_putstr_fd(" rb: ", 2);
-    ft_putnbr_fd(config->op_counts[6],2);
-    ft_putstr_fd(" rr: ", 2);
-    ft_putnbr_fd(config->op_counts[7],2);
-    ft_putstr_fd(" rra: ", 2);
-    ft_putnbr_fd(config->op_counts[8],2);
-    ft_putstr_fd(" rrb: ", 2);
-    ft_putnbr_fd(config->op_counts[9],2);
-    ft_putstr_fd(" rrr: ", 2);
-    ft_putnbr_fd(config->op_counts[10],2);
-    ft_putstr_fd("\n", 2);
+	ft_putstr_fd("[bench] sa: ", 2);
+	ft_putnbr_fd(config->op_counts[0], 2);
+	ft_putstr_fd(" sb: ", 2);
+	ft_putnbr_fd(config->op_counts[1], 2);
+	ft_putstr_fd(" ss: ", 2);
+	ft_putnbr_fd(config->op_counts[2], 2);
+	ft_putstr_fd(" pa: ", 2);
+	ft_putnbr_fd(config->op_counts[3], 2);
+	ft_putstr_fd(" pb: ", 2);
+	ft_putnbr_fd(config->op_counts[4], 2);
+	ft_putstr_fd("\n", 2);
+	ft_putstr_fd("[bench] ra: ", 2);
+	ft_putnbr_fd(config->op_counts[5], 2);
+	ft_putstr_fd(" rb: ", 2);
+	ft_putnbr_fd(config->op_counts[6], 2);
+	ft_putstr_fd(" rr: ", 2);
+	ft_putnbr_fd(config->op_counts[7], 2);
+	ft_putstr_fd(" rra: ", 2);
+	ft_putnbr_fd(config->op_counts[8], 2);
+	ft_putstr_fd(" rrb: ", 2);
+	ft_putnbr_fd(config->op_counts[9], 2);
+	ft_putstr_fd(" rrr: ", 2);
+	ft_putnbr_fd(config->op_counts[10], 2);
+	ft_putstr_fd("\n", 2);
 }
+
 static void	print_dis_perc(double x)
 {
 	int	x_whole;
 	int	dec_part;
 
-	x = x + 0.005; 
+	x = x + 0.005;
 	x_whole = (int)x;
 	dec_part = (int)((x - x_whole) * 100);
-    
 	ft_putnbr_fd(x_whole, 2);
 	ft_putchar_fd('.', 2);
 	if (dec_part < 10)
@@ -55,6 +55,7 @@ static void	print_dis_perc(double x)
 	ft_putnbr_fd(dec_part, 2);
 	ft_putstr_fd("%\n", 2);
 }
+
 static char	*get_algo_name(int type)
 {
 	if (type == 1)
@@ -65,6 +66,7 @@ static char	*get_algo_name(int type)
 		return ("[bench] strategy: Complex / O(n log n)");
 	return ("[bench] strategy: Adaptive / ");
 }
+
 void	print_benchmark(t_config *config)
 {
 	int		total;

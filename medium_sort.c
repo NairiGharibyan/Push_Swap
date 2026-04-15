@@ -6,7 +6,7 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 16:51:41 by nagharib          #+#    #+#             */
-/*   Updated: 2026/04/14 15:51:30 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/15 15:29:12 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,16 +84,16 @@ void	push_back_to_a(t_node **a, t_node **b, t_config *config)
 	}
 }
 
-int		chunk_size(int s)
+int	chunk_size(int s)
 {
-	int		c;
+	int	c;
 
 	c = 0;
 	if (s <= 10)
-        c = 2;
-    else if (s <= 100)
-        c = s / 6;
-    else
+		c = 2;
+	else if (s <= 100)
+		c = s / 6;
+	else
 		c = s / 14;
 	return (c);
 }
@@ -126,4 +126,3 @@ void	medium_sort(t_node **a, t_node **b, t_config *config)
 	}
 	push_back_to_a(a, b, config);
 }
-
