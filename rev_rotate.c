@@ -6,7 +6,7 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 20:10:47 by arpbabay          #+#    #+#             */
-/*   Updated: 2026/04/14 21:37:55 by nagharib         ###   ########.fr       */
+/*   Updated: 2026/04/15 15:32:36 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void	rrb(t_node **stack_b, int print_flag, t_config *config)
 		write(1, "rrb\n", 4);
 }
 
-void	rrr(t_node **stack_a, t_node **stack_b,
-		int print_flag, t_config *config)
+void	rrr(t_node **stack_a, t_node **stack_b, int print_flag,
+		t_config *config)
 {
 	do_rev_rotate(stack_a);
 	do_rev_rotate(stack_b);

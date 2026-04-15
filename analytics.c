@@ -6,7 +6,7 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 20:11:15 by arpbabay          #+#    #+#             */
-/*   Updated: 2026/04/14 16:20:22 by nagharib         ###   ########.fr       */
+/*   Updated: 2026/04/15 15:28:49 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 double	compute_disorder(t_node *stack_a)
 {
-	double		mistakes;
-	double		total_pairs;
-	t_node		*inner;
-	t_node		*outer;
+	double	mistakes;
+	double	total_pairs;
+	t_node	*inner;
+	t_node	*outer;
 
 	mistakes = 0;
 	total_pairs = 0;
@@ -59,4 +59,6 @@ void	select_algorithm(t_config *config, t_node **stack_a, t_node **stack_b)
 		simple_sort(stack_a, stack_b, config);
 	else if (config->effective_algo == 2)
 		medium_sort(stack_a, stack_b, config);
+	else if (config->effective_algo == 3)
+		complex_sort(stack_a, stack_b, config);
 }

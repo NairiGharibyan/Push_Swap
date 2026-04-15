@@ -6,7 +6,7 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 19:03:56 by nagharib          #+#    #+#             */
-/*   Updated: 2026/04/14 21:40:16 by nagharib         ###   ########.fr       */
+/*   Updated: 2026/04/15 15:33:16 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ t_node	*parse_arguments(int argc, char **argv, t_config *config)
 	int		i;
 
 	stack_a = NULL;
-	i = config -> start_idx;
+	i = config->start_idx;
 	while (i < argc)
 	{
 		if (!process_argument(argv[i], &stack_a))
