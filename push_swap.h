@@ -6,7 +6,7 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 19:05:38 by nagharib          #+#    #+#             */
-/*   Updated: 2026/04/15 15:30:53 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/15 17:33:08 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int					is_valid_input(char *str, t_node *stack_a);
 int					is_sorted(t_node *stack);
 int					get_index(t_node *stack, int value);
 int					find_max(t_node *stack);
+void				init_config(t_config *config);
 void				free_list(t_node *head);
 void				add_back(t_node **head, t_node *new);
 void				parse_flags(int argc, char **argv, t_config *config);
