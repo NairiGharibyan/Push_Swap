@@ -1,79 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   complex_helpers.c                                  :+:      :+:    :+:   */
+/*   complex_helpers2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/15 15:34:07 by arpbabay          #+#    #+#             */
-/*   Updated: 2026/04/15 15:34:08 by arpbabay         ###   ########.fr       */
+/*   Created: 2026/04/15 16:27:50 by arpbabay          #+#    #+#             */
+/*   Updated: 2026/04/15 16:30:20 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-t_node	*find_max_node(t_node *stack)
-{
-	int		max;
-	t_node	*current;
-	t_node	*max_node;
-
-	if (!stack)
-		return (NULL);
-	max = stack->value;
-	max_node = stack;
-	current = stack;
-	while (current)
-	{
-		if (current->value > max)
-		{
-			max = current->value;
-			max_node = current;
-		}
-		current = current->next;
-	}
-	return (max_node);
-}
-
-int	calculate_cost(int pos, int size)
-{
-	int	cost;
-
-	if (pos <= size / 2)
-		cost = pos;
-	else
-		cost = size - pos;
-	return (cost);
-}
-
-void	set_all_targets(t_node *a, t_node *b)
-{
-	t_node	*curr_a;
-	t_node	*curr_b;
-	t_node	*target;
-	long	best_match;
-
-	curr_a = a;
-	while (curr_a)
-	{
-		best_match = LONG_MIN;
-		target = NULL;
-		curr_b = b;
-		while (curr_b)
-		{
-			if (curr_b->value < curr_a->value && curr_b->value > best_match)
-			{
-				target = curr_b;
-				best_match = curr_b->value;
-			}
-			curr_b = curr_b->next;
-		}
-		if (target == NULL)
-			target = find_max_node(b);
-		curr_a->target_node = target;
-		curr_a = curr_a->next;
-	}
-}
 
 void	rotate_a(t_node **a, t_node *cheapest_node, t_config *config)
 {
@@ -155,8 +92,8 @@ t_node	*find_min_node(t_node *stack)
 
 void	final_alignment(t_node **a, t_config *config)
 {
-	t_node *min_node;
-	int size_a;
+	t_node	*min_node;
+	int		size_a;
 
 	if (!a || !*a)
 		return ;
@@ -168,7 +105,6 @@ void	final_alignment(t_node **a, t_config *config)
 		while (*a != min_node)
 			ra(a, 1, config);
 	}
-
 	else
 	{
 		while (*a != min_node)

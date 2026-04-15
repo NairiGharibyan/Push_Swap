@@ -6,7 +6,7 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 15:34:00 by arpbabay          #+#    #+#             */
-/*   Updated: 2026/04/15 15:34:01 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/15 16:33:54 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,19 +68,6 @@ t_node	*get_cheapest_node(t_node *stack)
 		current = current->next;
 	}
 	return (min_node);
-}
-void	rotate_both_up(t_node **a, t_node **b, t_node *cheapest_node,
-		t_config *config)
-{
-	while (*a != cheapest_node && *b != cheapest_node->target_node)
-		rr(a, b, 1, config);
-}
-
-void	rotate_both_down(t_node **a, t_node **b, t_node *cheapest_node,
-		t_config *config)
-{
-	while (*a != cheapest_node && *b != cheapest_node->target_node)
-		rrr(a, b, 1, config);
 }
 
 void	do_move(t_node **a, t_node **b, t_node *cheapest_node, t_config *config)
