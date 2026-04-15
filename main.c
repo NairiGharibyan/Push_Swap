@@ -6,7 +6,7 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 22:22:27 by arpbabay          #+#    #+#             */
-/*   Updated: 2026/04/15 15:50:57 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/15 17:23:09 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,8 @@ int	main(int argc, char **argv)
 	config.disorder = compute_disorder(stack_a);
 	if (is_sorted(stack_a))
 		return (free_list(stack_a), free_list(stack_b), 0);
-	else if (stack_size(stack_a) == 2)
-	{
-		if (stack_a->value > stack_a->next->value)
-			sa(&stack_a, 1, &config);
-	}
-	else if (stack_size(stack_a) == 3)
-		sort_three(&stack_a, &config);
+	else if (stack_size(stack_a) <= 5)
+        sort_5(stack_a);
 	else
 		select_algorithm(&config, &stack_a, &stack_b);
 	if (config.bench_mod == 1)

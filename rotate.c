@@ -6,7 +6,7 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 16:25:14 by nagharib          #+#    #+#             */
-/*   Updated: 2026/04/15 15:32:43 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/15 17:10:09 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,4 @@ void	rr(t_node **stack_a, t_node **stack_b, int print_flag, t_config *config)
 	config->op_counts[7]++;
 	if (print_flag == 1)
 		write(1, "rr\n", 3);
-}
+}normnon

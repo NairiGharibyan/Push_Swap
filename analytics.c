@@ -6,12 +6,16 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 20:11:15 by arpbabay          #+#    #+#             */
-/*   Updated: 2026/04/15 15:28:49 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/15 17:29:19 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	init_config(t_config *config)
+{
+	
+}
 double	compute_disorder(t_node *stack_a)
 {
 	double	mistakes;
