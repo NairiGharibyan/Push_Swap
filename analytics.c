@@ -6,7 +6,7 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 20:11:15 by arpbabay          #+#    #+#             */
-/*   Updated: 2026/04/15 17:29:19 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/15 18:13:01 by nagharib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,17 @@
 
 void	init_config(t_config *config)
 {
-	
+	int	i;
+
+	i = 0;
+	config->algo_type = 4;
+	config->bench_mod = 0;
+	config->start_idx = 1;
+	config->disorder = 0.0;
+	while (i < 11)
+		config->op_counts[i++] = 0;
 }
+
 double	compute_disorder(t_node *stack_a)
 {
 	double	mistakes;

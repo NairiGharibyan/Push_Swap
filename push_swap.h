@@ -6,7 +6,8 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 19:05:38 by nagharib          #+#    #+#             */
-/*   Updated: 2026/04/15 17:54:39 by nagharib         ###   ########.fr       */
+/*   Updated: 2026/04/15 20:53:39 by nagharib         ###   ########.fr       */
+/*   Updated: 2026/04/15 17:33:08 by arpbabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +67,7 @@ int					is_valid_input(char *str, t_node *stack_a);
 int					is_sorted(t_node *stack);
 int					get_index(t_node *stack, int value);
 int					find_max(t_node *stack);
+void				init_config(t_config *config);
 void				free_list(t_node *head);
 void				add_back(t_node **head, t_node *new);
 void				parse_flags(int argc, char **argv, t_config *config);
@@ -78,6 +80,7 @@ void				medium_sort(t_node **a, t_node **b, t_config *config);
 void				complex_sort(t_node **a, t_node **b, t_config *config);
 void				sa(t_node **stack_a, int print_flag, t_config *config);
 void				sb(t_node **stack_b, int print_flag, t_config *config);
+void				sort_5(t_node **a, t_node **b, t_config *config);
 void				ss(t_node **a, t_node **b, int print_flag,
 						t_config *config);
 void				pa(t_node **stack_a, t_node **stack_b, int print_flag,
@@ -94,6 +97,7 @@ void				rrr(t_node **stack_a, t_node **stack_b, int print_flag,
 						t_config *config);
 void				assign_index(t_node *a);
 void				error_exit(t_node *a, t_node *b);
+void				bring_min_to_top(t_node **stack, t_config *config);
 void				bring_max_to_top(t_node **stack, t_config *config);
 void				push_back_to_a(t_node **a, t_node **b, t_config *config);
 void				medium_sort(t_node **a, t_node **b, t_config *config);

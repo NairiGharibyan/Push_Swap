@@ -6,11 +6,23 @@
 /*   By: arpbabay <arpbabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 17:49:09 by nagharib          #+#    #+#             */
-/*   Updated: 2026/04/15 15:29:38 by arpbabay         ###   ########.fr       */
+/*   Updated: 2026/04/15 20:52:41 by nagharib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	sort_5(t_node **a, t_node **b, t_config *config)
+{
+	while (stack_size(*a) > 3)
+	{
+		bring_min_to_top(a, config);
+		pb(a, b, 1, config);
+	}
+	sort_three(a, config);
+	pa(a, b, 1, config);
+	pa(a, b, 1, config);
+}
 
 void	sort_three(t_node **a, t_config *config)
 {
